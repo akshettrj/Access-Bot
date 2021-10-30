@@ -22,6 +22,7 @@ from callbacks.go_back import no_request_go_back_callback_handler
 from callbacks.undo_no_req import undo_no_request_callback_handler
 from callbacks.banned_message import banned_message_callback_handler
 
+from wserver import keep_alive
 
 def main():
     updater = Updater(config.bot_token, use_context=True)
@@ -67,4 +68,5 @@ if __name__ == "__main__":
         banned_message_callback_handler
     ]
 
+    keep_alive()
     main()
