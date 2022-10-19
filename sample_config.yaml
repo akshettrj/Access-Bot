@@ -1,0 +1,30 @@
+telegram:
+  bot_token:
+  api_url:
+  owner_id:
+  sudo_users:
+    - 32423
+    - 234234
+  authorized_chats:
+    - 34324
+    - -100
+# database:
+#   type: postgres
+#   host: localhost
+#   user: admin
+#   password: password
+#   dbname: gobot
+#   port: 5432
+#   time_zone: Asia/Kolkata
+
+# database:
+#   type: sqlite
+#   path: ./gobot.sqlite.db
+
+# database:
+#   type: mysql
+#   host: localhost
+#   port: 3306
+#   user: admin
+#   password: password
+#   dbname: gobot
