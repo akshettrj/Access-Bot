@@ -15,7 +15,6 @@ import (
 	"github.com/PaulSonOfLars/gotgbot/v2"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext/handlers"
-	"github.com/go-co-op/gocron"
 )
 
 func main() {
@@ -87,9 +86,6 @@ func main() {
 
 	utils.RegisterBotCommand(bot, state.State.Commands...)
 
-	startScheduler()
-	log.Printf("Scheduler started")
-
 	// Start the poller
 	err = updater.StartPolling(bot, &ext.PollingOpts{
 		DropPendingUpdates: true,
@@ -107,15 +103,4 @@ func main() {
 
 	// Idle, to keep updates coming in, and avoid bot stopping.
 	updater.Idle()
-}
-
-func startScheduler() {
-	s := gocron.NewScheduler(time.UTC)
-	s.SetMaxConcurrentJobs(50, gocron.WaitMode)
-	s.TagsUnique()
-
-	// Cron format is <minute> <hour> <day_of_month> <month> <day_of_week>
-	// Cron format is  <0-59>  <0-23>     <1-31>      <1-12> <0-6 (Sun-Sat)>
-
-	s.StartAsync()
 }
